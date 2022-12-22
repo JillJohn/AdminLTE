@@ -9,6 +9,31 @@
 
 $(function () {
   'use strict'
+// Fee collection
+	new Chart(document.getElementById("bar-chart-grouped"), {
+    type: 'bar',
+    data: {
+      labels: ["Don Bosco", "St.Joseph", "Excellent", "Velankanni"],
+      datasets: [
+        {
+          label: "Total Fee",
+          backgroundColor: "navi",
+          data: [700,800,600,750]
+        }, {
+          label: "Fee collected",
+          backgroundColor: "#8e5ea2",
+          data: [250,500,444,400]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Population growth (millions)'
+      }
+    }
+});
+
 
   // Make the dashboard widgets sortable Using jquery UI
   $('.connectedSortable').sortable({
