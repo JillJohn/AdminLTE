@@ -18,11 +18,11 @@ $(function () {
         {
           label: "Total Fee",
           backgroundColor: "navi",
-          data: [700,1000,600,750]
+          data: [700,800,600,750]
         }, {
           label: "Fee collected",
           backgroundColor: "#8e5ea2",
-          data: [650,500,200,600]
+          data: [250,500,444,400]
         }
       ]
     },
