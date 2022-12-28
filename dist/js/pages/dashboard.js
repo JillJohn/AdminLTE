@@ -18,7 +18,7 @@ new Chart(document.getElementById("bar-chart-horizontal"), {
       datasets: [
         {
           label: "Presented Students",
-          backgroundColor: ["#df6b99", "#79305a","#8e3563","#a33863","#d33d72", "#b55385","#df6b99"],
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#40E0D0","#c45850", "#DFFF00","#DE3163"],
           data: [60,55,52,58,60,50,56,0]
         }
       ]
@@ -37,14 +37,15 @@ new Chart(document.getElementById("bar-chart-horizontal"), {
     type: 'bar',
     data: {
       labels: ["Don Bosco", "St.Joseph", "Excellent", "Velankanni"],
+      backgroundColor:["#46c7c7"],
       datasets: [
         {
           label: "Total Fee",
-          backgroundColor: "navi",
+          backgroundColor: "#46c7c7",
           data: [700,800,600,750]
         }, {
           label: "Fee collected",
-          backgroundColor: "#8e5ea2",
+          backgroundColor: "#3EB489",
           data: [250,500,444,400]
         }
       ]
