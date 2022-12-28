@@ -11,6 +11,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
+  --muted: #f2f2f2;
+  --muted1: #dfd4c2;
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;

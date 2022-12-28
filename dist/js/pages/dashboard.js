@@ -18,7 +18,7 @@ new Chart(document.getElementById("bar-chart-horizontal"), {
       datasets: [
         {
           label: "Presented Students",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#40E0D0","#c45850", "#DFFF00","#DE3163"],
+          backgroundColor: ["#df6b99", "#79305a","#8e3563","#a33863","#d33d72", "#b55385","#df6b99"],
           data: [60,55,52,58,60,50,56,0]
         }
       ]
