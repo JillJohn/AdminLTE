@@ -14,11 +14,11 @@ $(function () {
 new Chart(document.getElementById("bar-chart-horizontal"), {
     type: 'horizontalBar',
     data: {
-      labels: ["Total strength", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saterday", /*"Sunday"*/ ],
+      labels: ["Total_Strength", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saterday", /*"Sunday"*/ ],
       datasets: [
         {
           label: "Presented Students",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#40E0D0","#c45850", "#DFFF00","#DE3163"],
+          backgroundColor: ["#df6b99", "#79305a","#8e3563","#a33863","#d33d72", "#b55385","#df6b99"],
           data: [60,55,52,58,60,50,56,0]
         }
       ]
@@ -37,15 +37,14 @@ new Chart(document.getElementById("bar-chart-horizontal"), {
     type: 'bar',
     data: {
       labels: ["Don Bosco", "St.Joseph", "Excellent", "Velankanni"],
-      backgroundColor:["#46c7c7"],
       datasets: [
         {
           label: "Total Fee",
-          backgroundColor: "#46c7c7",
+          backgroundColor: "navi",
           data: [700,800,600,750]
         }, {
           label: "Fee collected",
-          backgroundColor: "#3EB489",
+          backgroundColor: "#8e5ea2",
           data: [250,500,444,400]
         }
       ]
