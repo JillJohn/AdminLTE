@@ -40,11 +40,11 @@ new Chart(document.getElementById("bar-chart-horizontal"), {
       datasets: [
         {
           label: "Total Fee",
-          backgroundColor: "navi",
+          backgroundColor: "#46c7c7",
           data: [700,800,600,750]
         }, {
           label: "Fee collected",
-          backgroundColor: "#8e5ea2",
+          backgroundColor: "#3EB489",
           data: [250,500,444,400]
         }
       ]
