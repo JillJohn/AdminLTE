@@ -1059,6 +1059,49 @@
 	      </div>
 	     </div> <!-- Fee collection end -->
 
+        <!-- Attendance -->
+	     <div class="card bg-light">
+        <div class="card-header border-0">
+          <h3 class="card-title">
+            <i class="fas fa-th mr-1"></i>
+             Attendance
+          </h3>
+          <div class="card-tools">
+ <div class="btn-group">
+              <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
+                <i class="fas fa-bars"></i>
+              </button>
+              <div class="dropdown-menu" role="menu">
+                <a href="#" class="dropdown-item">I STD</a>
+                <a href="#" class="dropdown-item">II STD</a>
+                <a href="#" class="dropdown-item">III STD</a>
+    <a href="#" class="dropdown-item">IV STD</a>
+      <a href="#" class="dropdown-item">V STD</a>
+    <a href="#" class="dropdown-item">VI STD</a>
+    <a href="#" class="dropdown-item">VII STD</a>
+    <a href="#" class="dropdown-item">VIII STD</a>
+            <a href="#" class="dropdown-item">IX STD</a>
+      <a href="#" class="dropdown-item">X STD</a>
+      <a href="#" class="dropdown-item">XI STD</a>
+     <a href="#" class="dropdown-item">XII STD</a>
+
+              </div>
+            </div>
+
+            <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <canvas id="bar-chart-horizontal" width="800" height="450"></canvas>
+        </div>
+       </div>
+
+
 
             <!-- DIRECT CHAT -->
             <div class="card direct-chat direct-chat-primary">
@@ -1464,48 +1507,7 @@
               </div>
 	  </div> 
             <!-- /.card -->
-            <!-- Attendance -->
-	     <div class="card bg-light">
-              <div class="card-header border-0">
-                <h3 class="card-title">
-                  <i class="fas fa-th mr-1"></i>
-                   Attendance
-                </h3>
-                <div class="card-tools">
-		   <div class="btn-group">
-                    <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
-                      <i class="fas fa-bars"></i>
-                    </button>
-                    <div class="dropdown-menu" role="menu">
-                      <a href="#" class="dropdown-item">I STD</a>
-                      <a href="#" class="dropdown-item">II STD</a>
-                      <a href="#" class="dropdown-item">III STD</a>
-		      <a href="#" class="dropdown-item">IV STD</a>
-  		      <a href="#" class="dropdown-item">V STD</a>
-		      <a href="#" class="dropdown-item">VI STD</a>
-		      <a href="#" class="dropdown-item">VII STD</a>
-		      <a href="#" class="dropdown-item">VIII STD</a>
-  	              <a href="#" class="dropdown-item">IX STD</a>
-  		      <a href="#" class="dropdown-item">X STD</a>
-  		      <a href="#" class="dropdown-item">XI STD</a>
- 		      <a href="#" class="dropdown-item">XII STD</a>
-
-                    </div>
-                  </div>
-
-                  <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body">
-                <canvas id="bar-chart-horizontal" width="800" height="550"></canvas>
-              </div>
-             </div>
-
+           
                          <!-- /.card-body -->
             <!--  <div class="card-footer bg-transparent">
                 <div class="row">
@@ -1570,7 +1572,7 @@
               <!-- /.card-header -->
               <div class="card-body pt-0">
                 <!--The calendar -->
-                <div id="calendar" style="width: 100%"></div>
+                <div id="calendar" style="height: 320px; width: 100%;"></div>
               </div>
               <!-- /.card-body -->
             </div>

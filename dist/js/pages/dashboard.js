@@ -24,7 +24,7 @@ new Chart(document.getElementById("pie-chart"), {
   options: {
     title: {
       display: true,
-      text: 'Predicted world population (millions) in 2050'
+      text: 'Predicted school facility performane in 2022'
     }
   }
 });
