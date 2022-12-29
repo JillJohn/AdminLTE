@@ -114,7 +114,7 @@ new Chart(document.getElementById("bar-chart-horizontal"), {
   }
   // World map by jvectormap
   $('#world-map').vectorMap({
-    map: 'usa_en',
+    map: 'in_merc',
     backgroundColor: 'transparent',
     regionStyle: {
       initial: {
