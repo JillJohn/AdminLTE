@@ -10,6 +10,25 @@
 $(function () {
   'use strict'
 
+//Pie chart
+new Chart(document.getElementById("pie-chart"), {
+  type: 'pie',
+  data: {
+    labels: ["Don Bosco","St.joseph","Excellent","Velankanni", "Sun beam"],
+    datasets: [{
+      label: "Population (millions)",
+      backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+      data: [433,750,500,900,1500]
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Predicted school facility performane in 2022'
+    }
+  }
+});
+
 //Attendance
 new Chart(document.getElementById("bar-chart-horizontal"), {
     type: 'horizontalBar',
@@ -36,16 +55,16 @@ new Chart(document.getElementById("bar-chart-horizontal"), {
     new Chart(document.getElementById("bar-chart-grouped"), {
     type: 'bar',
     data: {
-      labels: ["Don Bosco", "St.Joseph", "Excellent", "Velankanni"],
+      labels: ["Don Bosco", "St.Joseph", "Excellent", "Velankanni","Sun beam"],
       datasets: [
         {
           label: "Total Fee",
-          backgroundColor: "navi",
-          data: [700,800,600,750]
+          backgroundColor: "#31906E",
+          data: [700,800,600,750,900]
         }, {
           label: "Fee collected",
-          backgroundColor: "#8e5ea2",
-          data: [250,500,444,400]
+          backgroundColor: "#F75D59",
+          data: [250,500,444,400,600]
         }
       ]
     },
@@ -208,7 +227,7 @@ new Chart(document.getElementById("bar-chart-horizontal"), {
 
   /* Chart.js Charts */
   // Sales chart
-  var salesChartCanvas = document.getElementById('revenue-chart-canvas').getContext('2d')
+ /* var salesChartCanvas = document.getElementById('revenue-chart-canvas').getContext('2d')
   // $('#revenue-chart').get(0).getContext('2d');
 
   var salesChartData = {
@@ -360,5 +379,5 @@ new Chart(document.getElementById("bar-chart-horizontal"), {
     type: 'line',
     data: salesGraphChartData,
     options: salesGraphChartOptions
-  })
+  })  */
 })
