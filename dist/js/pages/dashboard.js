@@ -10,13 +10,13 @@ new Chart(document.getElementById("pie-chart"), {
     datasets: [{
       label: "Population (millions)",
       backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-      data: [433,750,500,900,1500]
+      data: [2,2,2,2,2]
     }]
   },
   options: {
     title: {
       display: true,
-      text: 'Predicted school facility performane in 2022'
+      text: ''
     }
   }
 });
@@ -124,7 +124,7 @@ new Chart(document.getElementById("bar-chart-horizontal"), {
     RU: 3000 // Russia
   }
   // World map by jvectormap
-  $('#world-map').vectorMap({
+/*  $('#world-map').vectorMap({
     map: 'in_merc',
     backgroundColor: 'transparent',
     regionStyle: {
@@ -148,7 +148,7 @@ new Chart(document.getElementById("bar-chart-horizontal"), {
         el.html(el.html() + ': ' + visitorsData[code] + ' new visitors')
       }
     }
-  })
+  })  */
 
   // Sparkline charts
   //var sparkline1 = new Sparkline($('#sparkline-1')[0], { width: 80, height: 50, lineColor: '#92c1dc', endColor: '#ebf4f9' })
