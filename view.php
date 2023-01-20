@@ -16,7 +16,6 @@
 			  </div>';
 	}
 
-
 	function showError($msg)
 	{
 		echo '<div class="alert alert-danger">
@@ -34,7 +33,22 @@
 		echo '<br />';
 		echo '<a href="student.php"><button type="back">Back</button></a>	';
 	}
+	?>
 
+<div class="dropdown">
+  <button class="dropbtn">Class</button>
+  <div class="dropdown-content">
+    <a href="#">I-STD</a>
+    <a href="#">II-STD</a>
+    <a href="#">III-STD</a>
+    <a href="#">IV-STD</a>
+    <a href="#">V-STD</a>
+    <a href="#">VI-STD</a>
+  </div>
+</div>
+
+
+	<?php
 
 	function showStudentForm($rec)
 	{
