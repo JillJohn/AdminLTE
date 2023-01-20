@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard 3</title>
+  <title>Management Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -167,24 +167,24 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+<!--      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">-->
+      <span class="brand-text font-weight-light">Management Dashboard</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+<!--      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Alexander Pierce</a>
         </div>
-      </div>
+      </div>-->
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
+ <     <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -212,24 +212,24 @@
               <li class="nav-item">
                 <a href="./index.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Home</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="./student.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>Classes</p>
                 </a>
-              </li>
+              </li>    
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link active">
+                <a href="./student.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                  <p>Student Details</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+  <!--        <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
@@ -832,7 +832,7 @@
             </a>
           </li>
         </ul>
-      </nav>
+      </nav>-->
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -845,7 +845,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard v3</h1>
+            <h1 class="m-0">Student Details</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -860,10 +860,140 @@
 
     <!-- Main content -->
     <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
+     
+     
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/datatables.min.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.css">
+      <!-- delete -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+      <!-- edit -->
+      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/datatables.min.css"/>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+      
+      
+      <?php
+     // error_reporting(E_ALL);
+     // ini_set('display_errors', '1');
+      
+      require_once('model.php');
+      require_once('view.php');
+      
+      
+      
+      showHeader();
+      $task = $_REQUEST['task'];
+      
+      if ($task == 'new') {
+        $rec['first_name'] = '';
+        $rec['last_name'] = '';
+        $rec['dob'] = '';
+        $rec['gender'] = '';
+        $rec['email'] = '';
+        $rec['id'] = -1;
+        showStudentForm($rec);
+        showHomePage();
+      
+      } else if ($task == 'edit') {
+        $student_id = $_REQUEST['id'];
+        $rs = getStudent($student_id, $rec);
+        if ($rs) {
+          showStudentForm($rec);
+        }
+        showHomePage();
+      } else if ($task == 'save') {
+        //print_r($_POST);
+        $rec['first_name'] = $_POST['first_name'];
+        $rec['last_name'] = $_POST['last_name'];
+        $rec['dob'] = $_POST['dob'];
+        $rec['gender'] = $_POST['gender'];
+        $rec['email'] = $_POST['email'];
+        $rec['id'] = $_POST['id'];
+        if ($rec['id'] > 0)
+          $rs = updateStudent($rec);
+        else
+          $rs = saveStudent($rec);
+        if ($rs) {
+          showMessage("Saved Successfully...!");
+        } else {
+          ShowError("Couldn't Save");
+        }
+        showHomePage();
+      
+      
+      
+      } else if ($task == 'remove') {
+        $student_id = $_REQUEST['id'];
+        $rs = removeStudent($student_id);
+        if ($rs) {
+          showMessage("Removed Successfully...!");
+        } else {
+          ShowError ("Delete Failed");
+        }
+        showHomePage();
+      } else if ($task == 'delete') {
+        $student_id = $_REQUEST['id'];
+        $rs = deleteMultipleStudent($student_id);
+        if ($rs) {
+          showMessage("Removed Successfully...!");
+        } else {
+          ShowError ("Delete Failed");
+        }
+        showHomePage();
+      }else {
+        //Default task
+      
+        $students = '';
+        $status = getStudents($students);
+        if ($status)
+          printStudents($students);
+      }
+      
+      
+      ?>
+      
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <!--<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+      -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+      
+      <!--datatable -->
+      <script type="text/javascript">
+        $('#datatable').DataTable({});
+        </script> 
+      <!-- checkbox select all  -->
+      <script type="text/javascript">
+      $('#checkAll').click(function(e){
+          var table= $(e.target).closest('table');
+          $('td input:checkbox',table).attr('checked',e.target.checked);
+      });
+      </script>
+      
+      <!--checkbox delete -->
+      <script type="text/javascript">
+      $(document).ready(function(){
+        $(document).on("click", "#btnDelete", function() {
+          if (confirm("Are you sure ?")) {
+            console.log("here")
+            let id = []
+            for (let index = 0; index < $(".checkItem").length; index++) {
+              if ($($(".checkItem")[index])[0].checked) {
+                id.push($($(".checkItem")[index]).attr("value"))
+              }
+            } 
+            $("#txtId").val(id.toString())
+            $("#deleteForm").submit();
+          }
+        });
+      });
+      
+      
+      
+      </script>
+     
+<!--            <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
                   <h3 class="card-title">Online Store Visitors</h3>
@@ -882,10 +1012,10 @@
                     </span>
                     <span class="text-muted">Since last week</span>
                   </p>
-                </div>
+                </div>-->
                 <!-- /.d-flex -->
 
-                <div class="position-relative mb-4">
+ <!--               <div class="position-relative mb-4">
                   <canvas id="visitors-chart" height="200"></canvas>
                 </div>
 
@@ -899,10 +1029,10 @@
                   </span>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- /.card -->
 
-            <div class="card">
+ <!--           <div class="card">
               <div class="card-header border-0">
                 <h3 class="card-title">Products</h3>
                 <div class="card-tools">
@@ -1005,11 +1135,11 @@
                   </tbody>
                 </table>
               </div>
-            </div>
-            <!-- /.card -->
-          </div>
+            </div>   -->
+            <!-- /.card 
+          </div>-->
           <!-- /.col-md-6 -->
-          <div class="col-lg-6">
+<!--          <div class="col-lg-6">
             <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
@@ -1029,10 +1159,10 @@
                     </span>
                     <span class="text-muted">Since last month</span>
                   </p>
-                </div>
+                </div>   -->
                 <!-- /.d-flex -->
 
-                <div class="position-relative mb-4">
+ <!--               <div class="position-relative mb-4">
                   <canvas id="sales-chart" height="200"></canvas>
                 </div>
 
@@ -1046,10 +1176,10 @@
                   </span>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- /.card -->
 
-            <div class="card">
+   <!--         <div class="card">
               <div class="card-header border-0">
                 <h3 class="card-title">Online Store Overview</h3>
                 <div class="card-tools">
@@ -1072,9 +1202,9 @@
                     </span>
                     <span class="text-muted">CONVERSION RATE</span>
                   </p>
-                </div>
+                </div>  -->
                 <!-- /.d-flex -->
-                <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+ <!--               <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
                   <p class="text-warning text-xl">
                     <i class="ion ion-ios-cart-outline"></i>
                   </p>
@@ -1084,9 +1214,9 @@
                     </span>
                     <span class="text-muted">SALES RATE</span>
                   </p>
-                </div>
+                </div>-->
                 <!-- /.d-flex -->
-                <div class="d-flex justify-content-between align-items-center mb-0">
+ <!--               <div class="d-flex justify-content-between align-items-center mb-0">
                   <p class="text-danger text-xl">
                     <i class="ion ion-ios-people-outline"></i>
                   </p>
@@ -1096,19 +1226,19 @@
                     </span>
                     <span class="text-muted">REGISTRATION RATE</span>
                   </p>
-                </div>
+                </div>-->
                 <!-- /.d-flex -->
-              </div>
+  <!--            </div>
             </div>
-          </div>
+          </div>-->
           <!-- /.col-md-6 -->
-        </div>
+  <!--      </div> -->
         <!-- /.row -->
-      </div>
+  <!--    </div> -->
       <!-- /.container-fluid -->
-    </div>
+  <!--   </div>-->
     <!-- /.content -->
-  </div>
+ <!-- </div>-->
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
@@ -1125,7 +1255,7 @@
       <b>Version</b> 3.2.0
     </div>
   </footer>
-</div>
+<!--</div>-->
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
